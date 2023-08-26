@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
 import Description from '@/components/description'
-import Footer from '@/components/Footer'
+
 
 const inter = Inter({ subsets: ['latin'] })
 
