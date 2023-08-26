@@ -1,14 +1,16 @@
 import Image from 'next/image'
 import { Inter } from 'next/font/google'
+import Description from '@/components/description'
+import Footer from '@/components/Footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
   return (
     <main
-      className={`flex min-h-screen flex-col items-center justify-center p-24 ${inter.className}`}
+      className={`flex min-h-screen flex-col justify-center px-10 py-20 sm:px-24 ${inter.className}`}
     >
-     Under Construction
+      <Description/>
     </main>
   )
 }
