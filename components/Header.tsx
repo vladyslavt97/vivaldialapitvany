@@ -10,8 +10,9 @@ export default function Header({}: Props) {
       <motion.div 
           initial={{opacity:0, scale:0.9}}
           animate={{opacity:1, scale:1}}
-          transition={{duration:5}}>
-      <Image src="/viv.jpeg" width={1000} alt="some" height={1000} className=' object-cover absolute -z-10 opacity-5'/>
+          transition={{duration:5}}
+          className=''>
+          <Image src="/viv.jpeg" width={1000} alt="some" height={1000} className=' absolute -z-10 opacity-5 inset-0 object-cover md:object-top w-full h-20' />
       </motion.div>
       <div className='text-center py-7 text-2xl font-extrabold text-black bg-green-800/30'>    
 
