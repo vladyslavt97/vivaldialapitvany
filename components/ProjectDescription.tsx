@@ -27,15 +27,15 @@ export default function Description({}: Props) {
         <motion.p
         initial={{x:-10, opacity:0}}
         whileInView={{x:0, opacity:1}}
-        transition={{duration:3, delay:0.5}}
+        transition={{duration:3, delay:0.3}}
         ><span className='font-bold'>Fellegi Eszter</span> – Alapító</motion.p>
 
-        <hr className='my-10'/>
+        <motion.hr initial={{opacity:0}} animate={{opacity:1}} transition={{duration:3}} className='my-10'/>
 
         <motion.p
         initial={{x:-10, opacity:0}}
         whileInView={{x:0, opacity:1}}
-        transition={{duration:3, delay:1}}
+        transition={{duration:3, delay:0.6}}
         >
             A Vivaldi alapítvány célja és tevékenysége:
             A Vivaldi Alapítvány célja kulturális programok szervezése, művészeti, kulturális nevelés, oktatás

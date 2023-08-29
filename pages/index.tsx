@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   return (
     <main
-      className={`flex min-h-screen flex-col justify-center px-10 py-20 sm:px-24 ${inter.className}`}
+      className={`flex min-h-screen flex-col justify-center px-5 sm:px-10 py-20 md:px-24 ${inter.className}`}
     >
       <Description/>
       <Gallery/>
