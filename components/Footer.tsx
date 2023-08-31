@@ -17,7 +17,7 @@ export default function Footer({}: Props) {
 
     const mystyle = "font-bold"
   return (
-    <div className='bg-green-800 w-screen px-5 pt-6 pb-4 sm:px-24 sm:py-5 relative bottom-0 text-white text-sm sm:text-md'>
+    <div className='bg-green-800/30 w-screen px-5 pt-6 pb-4 sm:px-24 sm:py-5 relative bottom-0 text-white text-sm sm:text-md'>
         {copied === true && <Copied/>}
         <h2 className='font-bold'>Az alapítvány folyamatosan fogadja a támogatásokat az alábbi címen:</h2>
         <h2 className='pt-2'>Adószám: 
