@@ -1,11 +1,19 @@
 import { motion } from "framer-motion";
 import Image from 'next/image'
+import { useStore } from "@/components/State";
+import LanguageSwitch from "./LanguageSwitch";
 
 type Props = {}
+interface languagesState {
+  language: string,
+}
 
 export default function Header({}: Props) {
+  const language = useStore((state: languagesState) => state.language);
+
   return (
     <div className='w-full h-20'>
+      <LanguageSwitch/>
       <motion.div 
           initial={{opacity:0, scale:0.9}}
           animate={{opacity:1, scale:1}}
