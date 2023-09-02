@@ -12,11 +12,11 @@ export default function Header({}: Props) {
   const language = useStore((state: languagesState) => state.language);
 
   return (
-    <div className='w-full h-20'>
+    <div className='w-full h-20 overflow-hidden'>
       <LanguageSwitch/>
       <motion.div 
           initial={{opacity:0, scale:1, y:-8}}
-          animate={{opacity:[0, 1, 0.5], scale:1.15, y:-18}}
+          animate={{opacity:[0, 1, 0.5], scale:1.15, y:-21}}
           transition={{duration:5}}
           className=''>
           <Image src="/viv.png" width={1000} alt="some" height={1000} className=' absolute -z-10 opacity-30 inset-0 object-cover md:object-top w-full h-22' />

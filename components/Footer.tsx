@@ -25,7 +25,7 @@ export default function Footer({}: Props) {
     <div className='bg-green-800/30 w-screen px-5 pt-6 pb-4 sm:px-24 sm:py-5 relative bottom-0 text-white text-sm sm:text-md'>
         {copied === true && <Copied/>}
         <h2 className='font-bold'>{language === "hun" ? "Az alapítvány folyamatosan fogadja a támogatásokat az alábbi címen:" : "Donations are welcome by bank transfer; please use the details below:"}</h2>
-        <h2 className='pt-2'>{language === "hun" ? "Adószám:" : "Tax number:"} 
+        <h2 className='mt-6'>{language === "hun" ? "Adószám:" : "Tax number:"} 
           <span className={mystyle}> 19350736-2-13</span>
           <CopyToClipboard text="19350736-2-13">
             <button onClick={e => toggleCopied(true)}><FiCopy className='ml-2 text-gray-400'/></button>
@@ -41,7 +41,7 @@ export default function Footer({}: Props) {
             <button onClick={e => toggleCopied(true)}><FiCopy className='ml-2 text-gray-400'/></button>
           </CopyToClipboard>
         </h2>
-        <h2>{language === "hun" ? "Elérhetőség:" : "Contact: "} <span className={mystyle}>info@vivaldialapitvany.hu</span>
+        <h2 className='mb-2'>{language === "hun" ? "Elérhetőség:" : "Contact: "} <span className={mystyle}>info@vivaldialapitvany.hu</span>
           <CopyToClipboard text="info@vivaldialapitvany.hu">
             <button onClick={e => toggleCopied(true)}><FiCopy className='ml-2 text-gray-400'/></button>
           </CopyToClipboard>
