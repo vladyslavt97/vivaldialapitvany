@@ -27,7 +27,7 @@ export default function Header({}: Props) {
           initial={{opacity:0, scale:0.9}}
           animate={{opacity:1, scale:1}}
           transition={{duration:5}}
-          >Vivaldi Alapítvány</motion.h1>
+          >{language === "hun" ? "Vivaldi Alapítvány" : "Vivaldi Foundation"}</motion.h1>
       </div>
     </div>
   )
