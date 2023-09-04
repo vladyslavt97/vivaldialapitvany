@@ -20,9 +20,9 @@ export default function Footer({}: Props) {
     }, 3000);
   }
 
-    const mystyle = "font-bold"
+    const mystyle = "font-bold text-black"
   return (
-    <div className='bg-green-800/30 w-screen px-5 pt-6 pb-4 sm:px-24 sm:py-5 relative bottom-0 text-black text-sm sm:text-md'>
+    <div className='bg-green-800/30 w-screen px-5 pt-6 pb-4 sm:px-24 sm:py-5 relative bottom-0 text-gray-700 text-sm sm:text-md'>
         {copied === true && <Copied/>}
         <h2 className='font-bold'>{language === "hun" ? "Az alapítvány folyamatosan fogadja a támogatásokat az alábbi címen:" : "Donations are welcome by bank transfer; please use the details below:"}</h2>
         <h2 className='mt-6'>{language === "hun" ? "Adószám:" : "Tax number:"} 

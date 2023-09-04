@@ -15,8 +15,8 @@ interface openState {
 export default function LanguageSwitch({}: Props) {
   const language = useStore((state: languagesState) => state.language);
 
-  const styles = "bg-gradient-to-br from-green-800/80 to-green-800/30 rounded-full px-1 shadow-lg";
-  const stylesselected = "bg-gradient-to-br from-green-800/40 to-green-800/10 rounded-full px-1 shadow-lg";
+  const styles = "bg-gradient-to-br from-green-800/80 to-green-800/30 rounded-full px-1 shadow-lg border border-green-800";
+  const stylesselected = "bg-gradient-to-br from-green-800/40 to-green-800/10 rounded-full px-1 shadow-lg border border-green-800";
   const engBio = () => {
     setLanguage('eng');
   }
