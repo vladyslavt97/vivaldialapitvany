@@ -30,12 +30,13 @@ export default function Header({}: Props) {
           <Image src="/viv.jpeg" width={1000} alt="some" height={1000} className=' absolute -z-10 opacity-30 inset-0 object-cover md:object-top w-full h-22' />
       </motion.div>
 
-      <div className='text-center py-7 text-2xl font-extrabold text-black bg-green-800/30'>    
+      <div className='text-center py-7 text-2xl font-extrabold text-black bg-green-800/30 '>    
 
           <motion.h1 
           initial={{opacity:0, scale:0.9}}
           animate={{opacity:1, scale:1}}
           transition={{duration:5}}
+          className="text-transparent bg-clip-text bg-gradient-to-r from-black to-green-700"
           >{language === "hun" ? "Vivaldi Alapítvány" : "Vivaldi Foundation"}</motion.h1>
       </div>
     </div>
