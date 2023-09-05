@@ -2,10 +2,12 @@ import { motion } from "framer-motion";
 import { useStore } from "@/components/State";
 import Image from "next/image";
 
+import { Navigation, Pagination} from 'swiper/modules';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import 'swiper/css/scrollbar';
 import { useEffect, useState } from "react";
 
 type Props = {}
@@ -35,18 +37,17 @@ export default function Gallery({}: Props) {
       className='text-center text-xl font-extrabold text-black'>{language === "hun" ? "Képtár" : "Gallery "}</motion.h1>
 
       <Swiper
-      pagination={{
-        type: "progressbar",
-      }}
-      navigation={true}
+      modules={[Navigation, Pagination]}
+      spaceBetween={50}
+      slidesPerView={1}
+      navigation
+      pagination={{ clickable: true }}
       className="z-0"
       >
         {arr.map((a,i)=>(
-          <div key={i}>
-            <SwiperSlide >
-              <Image width={200} height={200} src={`/gallery/${a}.jpg`} alt="photo" className="mx-auto my-5 w-80 h-80 object-contain" priority={true}/>
+            <SwiperSlide key={i}>
+              <Image priority={true} width={1000} height={1000} src={`/gallery/${a}.jpg`} alt="photo" className="mx-auto my-5 w-80 h-80 object-contain"/>
             </SwiperSlide>
-          </div>
         ))}
       </Swiper>
     </div>
