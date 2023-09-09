@@ -7,8 +7,8 @@ export default function Description({}: Props) {
     <div className='text-black'>
         <motion.p
         initial={{x:-10, opacity:0}}
-        whileInView={{x:0, opacity:1}}
-        transition={{duration:3}}
+        whileInView={{x:[-10,-4,0], opacity:[0,0.2,1]}}
+        transition={{ duration: 1.5, sequence: [0, 0, 1.5] }}
         >
             „Vivaldi, korának leghíresebb hegedűművésze és komponistája szenvedélyes pedagógusként
             egy velencei leányotthonban az árvákat felkarolva az intézmény vezető mestere volt,
@@ -35,7 +35,7 @@ export default function Description({}: Props) {
         <motion.p
         initial={{x:-10, opacity:0}}
         whileInView={{x:0, opacity:1}}
-        transition={{duration:3, delay:0.6}}
+        transition={{duration:1.5, delay:0.2}}
         >
             A Vivaldi alapítvány célja és tevékenysége:
             A Vivaldi Alapítvány célja kulturális programok szervezése, művészeti, kulturális nevelés, oktatás
