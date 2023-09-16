@@ -13,7 +13,7 @@ export default function Home() {
   const language = useStore((state: languagesState) => state.language);
   return (
     <main
-      className={`text-[14px] flex min-h-screen flex-col justify-center px-7 sm:px-10 py-20 md:px-24 bg-blue-900/10 ${inter.className}`}
+      className={`text-[14px] flex min-h-screen flex-col justify-center px-7 sm:px-10 py-7 md:px-24 bg-blue-900/10 ${inter.className}`}
     >
      {language === "hun" ? <Description/> : <DescriptionENG/>} 
       <Gallery/>

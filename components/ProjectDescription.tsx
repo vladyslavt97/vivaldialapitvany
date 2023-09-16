@@ -5,6 +5,13 @@ type Props = {}
 export default function Description({}: Props) {
   return (
     <div className='text-black'>
+      <motion.p
+        initial={{x:10, opacity:0}}
+        whileInView={{x:0, opacity:1}}
+        transition={{duration:3, delay:0.3}}
+        className="py-5 text-right"
+        ><span className='font-bold text-transparent bg-clip-text bg-gradient-to-r from-black to-blue-500/90 font-serifpy-5'>Fellegi Eszter</span> – Alapító</motion.p>
+
         <motion.p
         initial={{x:-10, opacity:0}}
         whileInView={{x:[-10,-4,0], opacity:[0,0.2,1]}}
