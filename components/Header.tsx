@@ -36,7 +36,7 @@ export default function Header({}: Props) {
           initial={{opacity:0, scale:0.9}}
           animate={{opacity:1, scale:1}}
           transition={{duration:5}}
-          className="text-transparent bg-clip-text bg-gradient-to-r from-black to-blue-500/90"
+          className="text-transparent bg-clip-text bg-gradient-to-r from-black to-blue-500/90 font-serif"
           >{language === "hun" ? "Vivaldi Alapítvány a jövő művészeiért" : "Vivaldi Foundation for the artists of the future"}</motion.h1>
       </div>
     </div>
