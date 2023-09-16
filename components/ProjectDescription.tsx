@@ -28,7 +28,7 @@ export default function Description({}: Props) {
         initial={{x:-10, opacity:0}}
         whileInView={{x:0, opacity:1}}
         transition={{duration:3, delay:0.3}}
-        ><span className='font-bold'>Fellegi Eszter</span> – Alapító</motion.p>
+        ><span className='font-bold text-transparent bg-clip-text bg-gradient-to-r from-black to-blue-500/90 font-serif'>Fellegi Eszter</span> – Alapító</motion.p>
 
         <motion.hr initial={{opacity:0}} animate={{opacity:1}} transition={{duration:3}} className='my-10'/>
 

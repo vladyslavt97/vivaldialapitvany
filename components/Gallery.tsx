@@ -34,7 +34,7 @@ export default function Gallery({}: Props) {
       initial={{opacity:0}}
       animate={{opacity:1}}
       transition={{duration:2, delay:1}}
-      className='text-center text-xl font-extrabold text-black'>{language === "hun" ? "Képtár" : "Gallery "}</motion.h1>
+      className='text-center text-xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-black to-blue-500/90 font-serif'>{language === "hun" ? "Képtár" : "Gallery "}</motion.h1>
 
       <Swiper
       modules={[Navigation, Pagination]}

@@ -21,7 +21,6 @@ export default function LanguageSwitch({}: Props) {
 
   useEffect(() => {
     const browserLanguage = navigator.language;
-    console.log(browserLanguage);
     setLoaded(true);
     if(browserLanguage.includes("hu")){
       setLanguage("hun");
@@ -30,8 +29,8 @@ export default function LanguageSwitch({}: Props) {
     }
   }, []);
 
-  const styles = "bg-gradient-to-br from-blue-800/80 to-blue-800/30 rounded-full px-1 shadow-lg border border-blue-700";
-  const stylesselected = "bg-gradient-to-br from-blue-800/40 to-blue-800/0 rounded-full px-1 shadow-lg border border-blue-700";
+  const styles = "bg-gradient-to-br from-blue-800/80 to-blue-800/30 rounded-full px-1 shadow-lg border border-blue-600";
+  const stylesselected = "bg-gradient-to-br from-blue-800/40 to-blue-800/0 rounded-full px-1 shadow-lg border border-blue-600";
   const engBio = () => {
     setLanguage('eng');
   }
