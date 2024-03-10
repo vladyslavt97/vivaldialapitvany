@@ -13,6 +13,7 @@ const config: Config = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
           'mainbg': "url('/Vivaldi_back.png')",
+          'newmain': "url('/Vivaldi_bg.png')",
       },
     },
   },
