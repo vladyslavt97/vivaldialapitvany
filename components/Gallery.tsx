@@ -21,7 +21,7 @@ export default function Gallery({}: Props) {
 
     useEffect(() => {
         const newArray = [];
-        for (let i = 1; i <= 9; i++) {
+        for (let i = 1; i <= 19; i++) {
             newArray.push(i);
         }
         setArr(newArray);
