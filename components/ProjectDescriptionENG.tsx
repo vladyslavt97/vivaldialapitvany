@@ -11,7 +11,7 @@ export default function DescriptionENG({}: Props) {
                 transition={{ duration: 3, delay: 0.3 }}
                 className="py-5 text-right"
             >
-                <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-black to-green-500/90 font-serif">
+                <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-black to-green-500/90 font-serif[text-shadow:_1px_1px_10px_rgb(250_250_250_/_100%)]">
                     Eszter Fellegi
                 </span>{" "}
                 – Founder
@@ -21,6 +21,7 @@ export default function DescriptionENG({}: Props) {
                 initial={{ x: -10, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ duration: 3 }}
+                className="[text-shadow:_1px_1px_10px_rgb(250_250_250_/_100%)]"
             >
                 ″Vivaldi, the most famous violinist and composer of his day, was
                 also a passionate educator who acted as the leading maestro of
@@ -49,7 +50,7 @@ export default function DescriptionENG({}: Props) {
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ duration: 3, delay: 0.3 }}
             >
-                <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-black to-green-500/90 font-serif">
+                <span className="font-bold text-transparent bg-clip-text bg-gradient-to-r from-black to-green-500/90 font-serif[text-shadow:_1px_1px_10px_rgb(250_250_250_/_100%)]">
                     Eszter Fellegi
                 </span>{" "}
                 – Founder
@@ -59,13 +60,14 @@ export default function DescriptionENG({}: Props) {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 3 }}
-                className="my-10"
+                className="my-10 bg-black"
             />
 
             <motion.p
                 initial={{ x: -10, opacity: 0 }}
                 whileInView={{ x: 0, opacity: 1 }}
                 transition={{ duration: 3, delay: 0.6 }}
+                className="[text-shadow:_1px_1px_10px_rgb(250_250_250_/_100%)]"
             >
                 Vivaldi Foundation – Aims and Activities: The Vivaldi Foundation
                 is committed to organising cultural events, enhancing artistic
