@@ -30,7 +30,7 @@ export default function Home() {
     //test
     return (
         <main
-            className={`text-[14px] flex min-h-screen [text-shadow:_0_1px_10px_rgb(0_0_0_/_60%)] flex-col justify-center px-7 sm:px-10 py-7 md:px-24 bg-mainbg  bg-no-repeat bg-cover bg-center sm:bg-none sm:bg-green-900/10 ${inter.className}`}
+            className={`text-[14px] flex min-h-screen flex-col justify-center px-7 sm:px-10 py-7 md:px-24 bg-mainbg  bg-no-repeat bg-cover bg-center sm:bg-none sm:bg-green-900/10 ${inter.className}`}
         >
             {/* <div className="absolute">
                 <Image
