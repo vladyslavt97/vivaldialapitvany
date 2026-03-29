@@ -1,55 +1,35 @@
-import { motion } from "framer-motion";
 import Image from "next/image";
 import { useStore } from "@/components/State";
 import LanguageSwitch from "./LanguageSwitch";
+import { siteCopy } from "./siteCopy";
 
-type Props = {};
-interface languagesState {
-    language: string;
-}
-
-export default function Header({}: Props) {
-    const language = useStore((state: languagesState) => state.language);
+export default function Header() {
+    const language = useStore((state) => state.language);
 
     return (
-        <div className="w-full overflow-hidden">
-            {/* <motion.div 
-          initial={{opacity:0, scale:1, y:-8}}
-          animate={{opacity:[0, 1, 0.5], scale:1.15, y:-21}}
-          transition={{duration:5}}
-          className='sm:hidden '>
-          <Image src="/viv.png" width={1000} alt="some" height={1000} className=' absolute -z-10 opacity-30 inset-0 object-cover w-full h-22' priority={true}/>
-        </motion.div> */}
+        <header className="mx-auto w-full max-w-5xl px-4 pt-5 sm:px-6 sm:pt-8 lg:px-8">
+            <div className="rounded-[2rem] border border-stone-900/10 bg-white/75 px-5 py-5 shadow-[0_28px_90px_-54px_rgba(58,46,34,0.38)] backdrop-blur-sm sm:px-7 sm:py-7">
+                <div className="flex flex-col gap-6 sm:gap-8">
+                    <div className="flex items-start justify-between gap-4">
+                        <div className="relative flex h-16 w-16 shrink-0 items-center justify-center rounded-[1.25rem] bg-[#ebe3d7] ring-1 ring-stone-900/5 sm:h-20 sm:w-20">
+                            <Image
+                                src="/vivaldilogo.png"
+                                width={96}
+                                height={96}
+                                alt="Vivaldi Alapítvány"
+                                priority
+                                className="h-12 w-12 object-contain sm:h-16 sm:w-16"
+                            />
+                        </div>
 
-            {/* <motion.div 
-          initial={{opacity:0, scale:1, y:0}}
-          animate={{opacity:[0, 1, 0.3], scale:1, y:-10}}
-          transition={{duration:5}}
-          className='hidden sm:block'>
-          <Image src="/viv.jpeg" width={1000} alt="some" height={1000} className=' absolute -z-10 opacity-30 inset-0 object-cover md:object-top w-full h-22' />
-        </motion.div> */}
-            <Image
-                src="/vivaldilogo.png"
-                width={100}
-                alt="some"
-                height={100}
-                loading="eager"
-                className="absolute top-1 left-4 md:top-4"
-            />
-            <LanguageSwitch />
+                        <LanguageSwitch />
+                    </div>
 
-            <div className="text-center h-[70px] sm:py-7 text-2xl font-extrabold text-black bg-green-800/30 flex items-end md:items-center justify-center">
-                <motion.h1
-                    initial={{ opacity: 0, scale: 0.9 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ duration: 5 }}
-                    className="text-transparent bg-clip-text bg-gradient-to-r from-black to-green-500/90 font-serif text-[15px] md:text-[20px]"
-                >
-                    {language === "hun"
-                        ? "Vivaldi Alapítvány a jövő művészeiért"
-                        : "Vivaldi Foundation for the artists of the future"}
-                </motion.h1>
+                    <h1 className="max-w-3xl font-display text-[2rem] leading-[0.94] tracking-[0.01em] text-stone-900 sm:text-[3rem] lg:text-[3.75rem]">
+                        {siteCopy[language].title}
+                    </h1>
+                </div>
             </div>
-        </div>
+        </header>
     );
 }

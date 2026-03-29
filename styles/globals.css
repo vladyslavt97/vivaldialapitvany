@@ -2,6 +2,51 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    overflow-x: hidden;
+@layer base {
+    html {
+        scroll-behavior: smooth;
+    }
+
+    body {
+        font-family: var(--font-body), sans-serif;
+        overflow-x: hidden;
+        background: #f4efe6;
+        color: #1f1b16;
+    }
+
+    ::selection {
+        background: rgba(74, 102, 81, 0.18);
+        color: #1f1b16;
+    }
+}
+
+@layer utilities {
+    .font-display {
+        font-family: var(--font-display), serif;
+    }
+
+    .gallery-track {
+        animation: gallery-marquee 42s linear infinite;
+        will-change: transform;
+    }
+
+    .gallery-track:hover {
+        animation-play-state: paused;
+    }
+}
+
+@keyframes gallery-marquee {
+    from {
+        transform: translate3d(0, 0, 0);
+    }
+
+    to {
+        transform: translate3d(-50%, 0, 0);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .gallery-track {
+        animation: none;
+    }
 }

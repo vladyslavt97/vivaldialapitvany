@@ -1,16 +1,11 @@
-import { useStore } from "@/components/State";
+type CopiedProps = {
+    label: string;
+};
 
-type Props = {};
-interface languagesState {
-    language: string;
-}
-
-export default function Copied({}: Props) {
-    const language = useStore((state: languagesState) => state.language);
-
+export default function Copied({ label }: CopiedProps) {
     return (
-        <div className="my-1 md:my-2 px-3 bg-green-700/30 text-center rounded-full text-black absolute top-0 md:w-96">
-            <h1>{language === "hun" ? "Másolva" : "Copied"}</h1>
+        <div className="inline-flex rounded-full border border-emerald-900/10 bg-emerald-900/[0.06] px-3 py-1 text-xs tracking-[0.12em] text-stone-700">
+            <span>{label}</span>
         </div>
     );
 }

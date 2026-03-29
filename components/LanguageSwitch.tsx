@@ -1,75 +1,49 @@
 "use client";
 import { useEffect, useState } from "react";
 import { useStore } from "./State";
-import { easeInOut, motion } from "framer-motion";
+import type { Language } from "./siteCopy";
 
-type Props = {};
-interface languagesState {
-    setLanguage: (language: string) => void;
-    language: string;
-}
+const options: Array<{ label: string; value: Language }> = [
+    { label: "HUN", value: "hun" },
+    { label: "ENG", value: "eng" },
+];
 
-interface openState {
-    open: false;
-    setOpen: (open: boolean) => void;
-}
-
-export default function LanguageSwitch({}: Props) {
-    const [loaded, setLoaded] = useState(false);
-    const language = useStore((state: languagesState) => state.language);
+export default function LanguageSwitch() {
+    const [isReady, setIsReady] = useState(false);
+    const language = useStore((state) => state.language);
+    const setLanguage = useStore((state) => state.setLanguage);
 
     useEffect(() => {
-        const browserLanguage = navigator.language;
-        setLoaded(true);
-        if (browserLanguage.includes("hu")) {
-            setLanguage("hun");
-        } else {
-            setLanguage("eng");
-        }
-    }, []);
+        const browserLanguage = navigator.language.toLowerCase();
+        setLanguage(browserLanguage.startsWith("hu") ? "hun" : "eng");
+        setIsReady(true);
+    }, [setLanguage]);
 
-    const styles =
-        "bg-gradient-to-br from-green-800/80 to-green-800/30 rounded-full px-1 shadow-lg border border-green-600";
-    const stylesselected =
-        "bg-gradient-to-br from-green-800/40 to-green-800/0 rounded-full px-1 shadow-lg border border-green-600";
-    const engBio = () => {
-        setLanguage("eng");
-    };
-
-    const hunBio = () => {
-        setLanguage("hun");
-    };
-
-    const setLanguage = useStore((state: languagesState) => state.setLanguage);
-    const open = useStore((state: openState) => state.open);
+    if (!isReady) {
+        return <div className="h-11 w-[7.25rem]" aria-hidden="true" />;
+    }
 
     return (
-        <div
-            className={`absolute right-1 md:right-7 top-1 ${
-                open ? "z-10" : "z-50"
-            }`}
-        >
-            {loaded && (
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 1, ease: "easeIn" }}
-                    className="flex flex-row gap-1 md:gap-3 text-white font-extralight text-sm"
-                >
+        <div className="inline-flex rounded-full border border-stone-900/10 bg-stone-900/[0.03] p-1 shadow-[0_14px_40px_-32px_rgba(58,46,34,0.45)]">
+            {options.map((option) => {
+                const isActive = option.value === language;
+
+                return (
                     <button
-                        onClick={hunBio}
-                        className={language === "hun" ? styles : stylesselected}
+                        key={option.value}
+                        type="button"
+                        onClick={() => setLanguage(option.value)}
+                        aria-pressed={isActive}
+                        className={`rounded-full px-4 py-2 text-xs tracking-[0.22em] transition-colors duration-200 sm:text-sm ${
+                            isActive
+                                ? "bg-stone-900 text-[#f7f2e9]"
+                                : "text-stone-600 hover:text-stone-900"
+                        }`}
                     >
-                        HUN
+                        {option.label}
                     </button>
-                    <button
-                        onClick={engBio}
-                        className={language === "eng" ? styles : stylesselected}
-                    >
-                        ENG
-                    </button>
-                </motion.div>
-            )}
+                );
+            })}
         </div>
     );
 }

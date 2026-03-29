@@ -1,64 +1,51 @@
-import { motion } from "framer-motion";
-import { useStore } from "@/components/State";
 import Image from "next/image";
+import { useStore } from "@/components/State";
+import { siteCopy } from "./siteCopy";
 
-import { Navigation, Pagination } from "swiper/modules";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/pagination";
-import "swiper/css/navigation";
-import "swiper/css/scrollbar";
-import { useEffect, useState } from "react";
+const galleryImages = Array.from({ length: 19 }, (_, index) => index + 1);
+const loopingGalleryImages = [...galleryImages, ...galleryImages];
 
-type Props = {};
-interface languagesState {
-    language: string;
-}
-export default function Gallery({}: Props) {
-    const language = useStore((state: languagesState) => state.language);
-
-    const [arr, setArr] = useState<number[]>([]);
-
-    useEffect(() => {
-        const newArray = [];
-        for (let i = 1; i <= 19; i++) {
-            newArray.push(i);
-        }
-        setArr(newArray);
-    }, []);
+export default function Gallery() {
+    const language = useStore((state) => state.language);
 
     return (
-        <div className="mt-20">
-            <motion.h1
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 2, delay: 1 }}
-                className="text-center text-xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-black to-green-500/90 font-serif"
-            >
-                {language === "hun" ? "Képtár" : "Gallery "}
-            </motion.h1>
+        <section className="rounded-[2rem] border border-stone-900/10 bg-white/80 p-4 shadow-[0_24px_80px_-52px_rgba(58,46,34,0.34)] backdrop-blur-sm sm:p-6 lg:p-8">
+            <div className="mb-5 flex items-center justify-between gap-4 sm:mb-6">
+                <h2 className="font-display text-[2rem] leading-none text-stone-900 sm:text-[2.5rem]">
+                    {siteCopy[language].galleryTitle}
+                </h2>
+            </div>
 
-            <Swiper
-                modules={[Navigation, Pagination]}
-                spaceBetween={50}
-                slidesPerView={1}
-                navigation
-                pagination={{ clickable: true }}
-                className="z-0"
-            >
-                {arr.map((a, i) => (
-                    <SwiperSlide key={i}>
-                        <Image
-                            priority={true}
-                            width={1000}
-                            height={1000}
-                            src={`/gallery/${a}.jpg`}
-                            alt="photo"
-                            className="mx-auto my-5 w-80 h-80 object-contain"
-                        />
-                    </SwiperSlide>
-                ))}
-            </Swiper>
-        </div>
+            <div className="relative">
+                <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-8 bg-gradient-to-r from-white via-white/80 to-transparent sm:w-12" />
+                <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-8 bg-gradient-to-l from-white via-white/80 to-transparent sm:w-12" />
+
+                <div className="overflow-hidden">
+                    <div className="gallery-track flex w-max gap-3 sm:gap-4">
+                        {loopingGalleryImages.map((imageNumber, index) => {
+                            const isDuplicate = index >= galleryImages.length;
+
+                            return (
+                                <figure
+                                    key={`${imageNumber}-${index}`}
+                                    aria-hidden={isDuplicate}
+                                    className="group w-[min(78vw,24rem)] shrink-0 overflow-hidden rounded-[1.35rem] border border-stone-900/8 bg-[#f5f0e7] shadow-[0_18px_48px_-42px_rgba(58,46,34,0.45)] sm:w-[22rem] lg:w-[24rem]"
+                                >
+                                    <div className="relative aspect-[3/2]">
+                                        <Image
+                                            src={`/gallery/${imageNumber}.jpg`}
+                                            alt=""
+                                            fill
+                                            sizes="(max-width: 639px) 78vw, (max-width: 1023px) 22rem, 24rem"
+                                            className="object-cover transition-transform duration-300 group-hover:scale-[1.015]"
+                                        />
+                                    </div>
+                                </figure>
+                            );
+                        })}
+                    </div>
+                </div>
+            </div>
+        </section>
     );
 }

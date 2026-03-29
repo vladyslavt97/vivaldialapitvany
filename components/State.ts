@@ -1,8 +1,12 @@
-import {create} from 'zustand';
+import { create } from "zustand";
+import type { Language } from "./siteCopy";
 
-export const useStore = create<any>((set: any) => ({
-  open: false,
-  setOpen: (openNavigation: boolean)=> set({ open: openNavigation }),
-  language: "hun",
-  setLanguage: (languageIncoming: string)=> set({ language: languageIncoming })
+type SiteState = {
+    language: Language;
+    setLanguage: (language: Language) => void;
+};
+
+export const useStore = create<SiteState>((set) => ({
+    language: "hun",
+    setLanguage: (language) => set({ language }),
 }));
